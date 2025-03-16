@@ -6,6 +6,7 @@ from sqlalchemy.orm import Session
 from app.database import get_db
 from app import crud, schemas
 from app.routers.users import get_current_user
+from app.config import settings
 
 templates = Jinja2Templates(directory="templates")
 router = APIRouter()
@@ -86,7 +87,14 @@ def ui_shorten_post(
             return templates.TemplateResponse("shorten_result.html", {"request": request, "error": f"Неверный формат даты: {expires_at}"}, status_code=status.HTTP_400_BAD_REQUEST)
     try:
         db_link = crud.create_link(db, link_create, owner_id=owner_id)
-        return templates.TemplateResponse("shorten_result.html", {"request": request, "short_code": db_link.short_code, "original_url": db_link.original_url, "expires_at": db_link.expires_at, "project": db_link.project})
+        return templates.TemplateResponse("shorten_result.html", {
+            "request": request,
+            "base_url": settings.BASE_URL,
+            "short_code": db_link.short_code,
+            "original_url": db_link.original_url,
+            "expires_at": db_link.expires_at,
+            "project": db_link.project
+        })
     except ValueError as ve:
         return templates.TemplateResponse("shorten_result.html", {"request": request, "error": str(ve)}, status_code=status.HTTP_400_BAD_REQUEST)
 
