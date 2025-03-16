@@ -2,9 +2,7 @@ import os
 
 class Settings:
     PROJECT_NAME: str = "URL Shortener Service"
-    
     SECRET_KEY: str = os.getenv("SECRET_KEY", "change_me_secret_key")
-    
     ALGORITHM: str = os.getenv("ALGORITHM", "HS256")
     ACCESS_TOKEN_EXPIRE_MINUTES: int = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", 60))
     
@@ -17,6 +15,8 @@ class Settings:
         "REDIS_URL",
         "redis://username:password@hostname:port/0"
     )
+    
+    BASE_URL: str = os.getenv("BASE_URL", "http://localhost:8000")
     
     LINK_CODE_LENGTH: int = 6
     INACTIVE_DAYS: int = int(os.getenv("INACTIVE_DAYS", 30))
