@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Сократить ссылку</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 20px; }
+      h2 { color: #333; }
+      label { font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h2>Сократить ссылку</h2>
+    <form action="/ui/shorten" method="post">
+        <label for="original_url">Оригинальный URL:</label><br>
+        <input type="text" id="original_url" name="original_url" required><br><br>
+        <label for="custom_alias">Кастомный alias (необязательно):</label><br>
+        <input type="text" id="custom_alias" name="custom_alias"><br><br>
+        <label for="expires_at">Время жизни (ISO8601, необязательно):</label><br>
+        <input type="text" id="expires_at" name="expires_at" placeholder="2025-12-31T23:59:00"><br><br>
+        <label for="project">Проект (необязательно):</label><br>
+        <input type="text" id="project" name="project" placeholder="Название проекта"><br><br>
+        <button type="submit">Сократить</button>
+    </form>
+    <p><a href="/ui">На главную</a></p>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Результат входа</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 20px; }
+    </style>
+</head>
+<body>
+    <h2>Результат входа</h2>
+    {% if error %}
+        <p style="color:red;">Ошибка: {{ error }}</p>
+    {% else %}
+        <p>{{ message }}</p>
+        <p>Теперь вы вошли, функции обновления и удаления доступны в меню.</p>
+    {% endif %}
+    <p><a href="/ui">На главную</a></p>
+</body>
+</html>

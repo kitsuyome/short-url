@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Удалить ссылку</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 20px; }
+    </style>
+</head>
+<body>
+    <h2>Удалить ссылку</h2>
+    <p>Функция доступна только для зарегистрированных пользователей. Введите short_code для удаления:</p>
+    <form action="/ui/delete" method="post">
+        <input type="text" name="short_code" required><br><br>
+        <button type="submit">Удалить</button>
+    </form>
+    <p><a href="/ui">На главную</a></p>
+</body>
+</html>

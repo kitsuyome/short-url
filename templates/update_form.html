@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Обновить ссылку</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 20px; }
+      label { font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h2>Обновить ссылку</h2>
+    <p>Функция обновления доступна только для зарегистрированных пользователей.<br>
+       Введите short_code для обновления. После обновления старая ссылка будет удалена, и вы получите новую короткую ссылку с тем же оригинальным URL.</p>
+    <form action="/ui/update" method="post">
+        <label for="short_code">Short_code:</label><br>
+        <input type="text" id="short_code" name="short_code" required><br><br>
+        <label for="new_expires_at">Новый срок истечения (ISO8601, необязательно):</label><br>
+        <input type="text" id="new_expires_at" name="new_expires_at" placeholder="2025-12-31T23:59:00"><br><br>
+        <button type="submit">Обновить</button>
+    </form>
+    <p><a href="/ui">На главную</a></p>
+</body>
+</html>

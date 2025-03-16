@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Результат удаления</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 20px; }
+    </style>
+</head>
+<body>
+    <h2>Результат удаления</h2>
+    {% if error %}
+        <p style="color:red;">Ошибка: {{ error }}</p>
+    {% else %}
+        <p>{{ message }}</p>
+    {% endif %}
+    <p><a href="/ui/delete">Удалить другую ссылку</a></p>
+    <p><a href="/ui">На главную</a></p>
+</body>
+</html>

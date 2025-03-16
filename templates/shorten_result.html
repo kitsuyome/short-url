@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Результат сокращения</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 20px; }
+    </style>
+</head>
+<body>
+    <h2>Результат</h2>
+    {% if error %}
+        <p style="color:red;">Ошибка: {{ error }}</p>
+    {% else %}
+        <p>Короткая ссылка: <a href="/links/{{ short_code }}">http://localhost:8000/links/{{ short_code }}</a></p>
+        <p>Оригинальный URL: {{ original_url }}</p>
+        {% if expires_at %}
+            <p>Дата истечения: {{ expires_at }}</p>
+        {% endif %}
+        {% if project %}
+            <p>Проект: {{ project }}</p>
+        {% endif %}
+    {% endif %}
+    <p><a href="/ui/shorten">Сократить ещё</a></p>
+    <p><a href="/ui">На главную</a></p>
+</body>
+</html>

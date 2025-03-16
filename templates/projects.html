@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ссылки по проектам</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 20px; }
+    </style>
+</head>
+<body>
+    <h2>Ссылки, сгруппированные по проектам</h2>
+    {% if projects %}
+        {% for project, links in projects.items() %}
+            <h3>Проект: {{ project }}</h3>
+            <ul>
+            {% for link in links %}
+                <li><strong>{{ link.short_code }}</strong> – {{ link.original_url }}</li>
+            {% endfor %}
+            </ul>
+        {% endfor %}
+    {% else %}
+        <p>Нет ссылок для отображения.</p>
+    {% endif %}
+    <p><a href="/ui">На главную</a></p>
+</body>
+</html>

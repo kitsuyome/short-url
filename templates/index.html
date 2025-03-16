@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>URL Shortener Service</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 20px; }
+      h1 { color: #333; }
+      a { text-decoration: none; color: #0066cc; }
+      a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>Добро пожаловать в URL Shortener Service!</h1>
+    <ul>
+        <li><a href="/ui/shorten">Сократить ссылку</a></li>
+        <li><a href="/ui/stats">Посмотреть статистику ссылки</a></li>
+        <li><a href="/ui/update">Обновить ссылку (только для зарегистрированных)</a></li>
+        <li><a href="/ui/delete">Удалить ссылку (только для зарегистрированных)</a></li>
+        <li><a href="/ui/search">Найти ссылку по оригинальному URL</a></li>
+        <li><a href="/ui/expired">История удалённых ссылок (только для зарегистрированных)</a></li>
+        <li><a href="/ui/projects">Ссылки по проектам (только для зарегистрированных)</a></li>
+        {% if request.cookies.get("access_token") %}
+            <li><a href="/ui/logout">Выйти</a></li>
+        {% else %}
+            <li><a href="/ui/register">Регистрация</a></li>
+            <li><a href="/ui/login">Вход</a></li>
+        {% endif %}
+    </ul>
+</body>
+</html>

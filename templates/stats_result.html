@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Статистика ссылки</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 20px; }
+    </style>
+</head>
+<body>
+    <h2>Результат статистики</h2>
+    {% if error %}
+        <p style="color:red;">Ошибка: {{ error }}</p>
+    {% else %}
+        <p>Оригинальный URL: {{ stats.original_url }}</p>
+        <p>Дата создания: {{ stats.created_at }}</p>
+        <p>Последнее использование: {{ stats.last_accessed_at }}</p>
+        <p>Количество переходов: {{ stats.redirect_count }}</p>
+    {% endif %}
+    <p><a href="/ui/stats">Найти другую ссылку</a></p>
+    <p><a href="/ui">На главную</a></p>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Результат обновления</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 20px; }
+    </style>
+</head>
+<body>
+    <h2>Результат обновления</h2>
+    {% if error %}
+        <p style="color:red;">Ошибка: {{ error }}</p>
+    {% else %}
+        <p>Ваша ссылка обновлена.</p>
+        <p>Новая короткая ссылка: <a href="/links/{{ short_code }}">http://localhost:8000/links/{{ short_code }}</a></p>
+        <p>Оригинальный URL: {{ original_url }}</p>
+        {% if expires_at %}
+            <p>Новый срок истечения: {{ expires_at }}</p>
+        {% endif %}
+    {% endif %}
+    <p><a href="/ui/update">Обновить другую ссылку</a></p>
+    <p><a href="/ui">На главную</a></p>
+</body>
+</html>
